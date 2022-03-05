@@ -20,24 +20,16 @@ export class FormComponent implements OnInit {
   submitted: any = false;
   multistep = new FormGroup({
        userDetails:      new FormGroup({
-           nombre:       new FormControl(''),
-           apPaterno:    new FormControl(''),
-           apMaterno:    new FormControl(''),
-           fecha :       new FormControl(''),
-           genero:       new FormControl(''),
-           nacionalidad: new FormControl(''),
-           club:         new FormControl(''),
-           rfc:          new FormControl(''),
-           ocupacion:    new FormControl('')
-          // nombre:       new FormControl('', Validators.required),
-          // apPaterno:    new FormControl('', Validators.required),
-          // apMaterno:    new FormControl('', Validators.required),
-          // fecha :       new FormControl('', Validators.required),
-          // genero:       new FormControl('', Validators.required),
-          // nacionalidad: new FormControl('', Validators.required),
-          // club:         new FormControl('', Validators.required),
-          // rfc:          new FormControl('', Validators.required),
-          // ocupacion:    new FormControl('', Validators.required)
+          nombre:       new FormControl('', Validators.required),
+          apPaterno:    new FormControl('', Validators.required),
+          apMaterno:    new FormControl('', Validators.required),
+          fecha :       new FormControl('', Validators.required),
+          genero:       new FormControl('', Validators.required),
+          nacionalidad: new FormControl('', Validators.required),
+          club:         new FormControl('', Validators.required),
+          rfc:          new FormControl('', Validators.required),
+          ocupacion:    new FormControl('', Validators.required)
+
        }),
 
        contactDetails: new FormGroup({
