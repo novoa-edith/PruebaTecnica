@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="/lib/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="assets/img/logo_fmf.png"
+  />
+  <span>Registro de usuario</span>
+    <div class="spacer"></div>
+</div>
+<div class="container tb-10">
+  <form (ngSubmit)="submit()" [formGroup]="dataForm">
+    <br>
+    <p><strong class="strong">Ingrese los datos indicados.</strong></p> 
+    <div *ngIf="step == 1" formGroupName="userDetails">
+      <div class="form-group">
+        <label for="inputNombre">Nombre(s): </label>
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Primer Nombre">
+      <span class="text-danger" *ngIf="submitted && userDetails.nombre.errors?.required">Por favor ingresa tu primer nombre</span>
+      </div>
+      <div class="form-group">
+        <label for="inputApPaterno">Apellido paterno: </label>
+        <input type="text" class="form-control" formControlName="apPaterno" id="exampleInputPassword1" placeholder="Apellido paterno">
+        <span class="text-danger" *ngIf="submitted && userDetails.apPaterno.errors?.required">Por favor ingresa tu apellido paterno</span>
+      </div>
+      <div class="form-group">
+        <label for="inputApPMaterno">Apellido materno: </label>
+        <input type="text" class="form-control" formControlName="apMaterno" id="exampleInputPassword1" placeholder="Apellido materno">
+        <span class="text-danger" *ngIf="submitted && userDetails.apMaterno.errors?.required">Por favor ingresa tu apellido materno</span>
+      </div>
+      <div class="form-group">
+        <label for="inputFecha">Fecha de nacimiento: </label>
+        <input type="date" class="form-control" formControlName="fecha" id="exampleInputPassword1" placeholder="Apellido materno">
+        <span class="text-danger" *ngIf="submitted && userDetails.fecha.errors?.required">Por favor ingresa tu fecha de nacimiento</span>
+      </div>
+      <div class="form-group">
+        <label for="inputGenero">Genero:* </label>
+        <select name="genero" class="form-control" formControlName="genero" placeholder="Genero">
+          <option selected></option>
+          <option  *ngFor="let item of genero">{{item.nombre}}</option>
+        </select>
+        <span class="text-danger" *ngIf="submitted && userDetails.genero.errors?.required">Por favor ingresa tu genero</span>
+      </div>
+      <div class="form-group">
+        <label for="inputNacionalidad">Nacionalidad:* </label>
+        <select name="nacionalidad" class="form-control" formControlName="nacionalidad" placeholder="Nacionalidad">
+          <option selected></option>
+          <option  *ngFor="let item of nacionalidad">{{item.nombre}}</option>
+        </select>
+        <span class="text-danger" *ngIf="submitted && userDetails.nacionalidad.errors?.required">Por favor ingresa tu nacionalidad</span>
+      </div>
+      <div class="form-group">
+        <label for="inputClub">Club de Fútob:* </label>
+        <select name="club" class="form-control" formControlName="club" placeholder="Club">
+          <option selected></option>
+          <option  *ngFor="let item of clubFutbol">{{item.nombre}}</option>
+        </select>
+        <span class="text-danger" *ngIf="submitted && userDetails.club.errors?.required">Por favor ingresa tu club de fútbol</span>
+      </div>
+      <div class="form-group">
+        <label for="inputRfc">RFC:* </label>
+        <input type="text" class="form-control" formControlName="rfc" id="exampleInputPassword1" placeholder="RFC">
+        <span class="text-danger" *ngIf="submitted && userDetails.rfc.errors?.required">Por favor ingresa tu RFC</span>
+      </div>
+      <div class="form-group">
+        <label for="inputOcupacion">Ocupación:* </label>
+        <input type="text" class="form-control" formControlName="ocupacion" id="exampleInputPassword1" placeholder="Ocupacion">
+      </div>
+    </div>
+    <div *ngIf="step == 2" formGroupName="contactDetails">
+      <div class="w3-card-4">
+
+        <header class="encabezado">
+          <h3 class="encabezadoTarjeta">Federación Mexicana del Fútbol</h3>
+        </header>
+        <div class="w3-container">
+          <hr>
+          <img src="assets/img/logo_fmf.png" alt="Logo" class="logo" style="width:50px">
+          <p class="label" *ngFor="let i of datos">{{i.nombre}}</p>
+
+        </div>        
+        </div>
+     
+    </div>
+
+
+     <div *ngIf="step == 3" formGroupName="personalDetails">
+      <!--<h4>Personal Details</h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Gender</label>
+        <select class="form-control" formControlName="gender">
+          <option value="null">Select Ony One</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+
+        </select>
+      </div>
+      <div class="form-group">
+       
+        <div class="form-check form-check-inline">
+          Education
+        </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio1" value="SSC">
+              <label class="form-check-label" for="inlineRadio1">SSC</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio2" value="HSC">
+              <label class="form-check-label" for="inlineRadio2">HSC</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio3" value="Graduate">
+              <label class="form-check-label" for="inlineRadio3">Graduate</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio3" value="Post Graduate">
+              <label class="form-check-label" for="inlineRadio3">Post Graduate</label>
+            </div>
+
+      </div> -->
+
+    </div>
+    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous()">Previous</a>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step != 3">Next</button>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 3">Submit</button>
+    <br>
+    <pre>{{ multistep.value | json}}</pre>
+  </form>
+</div>
