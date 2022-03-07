@@ -68,64 +68,45 @@
         <input type="text" class="form-control" formControlName="ocupacion" id="exampleInputPassword1" placeholder="Ocupacion">
       </div>
     </div>
-    <div *ngIf="step == 2" formGroupName="contactDetails">
+    <div *ngIf="step == 2">
       <div class="w3-card-4">
 
         <header class="encabezado">
-          <h3 class="encabezadoTarjeta">Federación Mexicana del Fútbol</h3>
+          <h3 class="encabezadoTarjeta">Federación Mexicana de Fútbol</h3>
         </header>
         <div class="w3-container">
           <hr>
           <img src="assets/img/logo_fmf.png" alt="Logo" class="logo" style="width:50px">
-          <p class="label" *ngFor="let i of datos">{{i.nombre}}</p>
+          <br>
+          <label class="strongTarjeta">Staff Member</label>
+          <br>
+          <label class="labelEstatic">Nombre: </label>&nbsp;
+          <label class="label">{{dataForm.value.userDetails.nombre}}
+                              {{dataForm.value.userDetails.apPaterno}}
+                              {{dataForm.value.userDetails.apMaterno}}</label>
+          <br>
+          <label class="labelEstatic">Fecha de nacimiento: </label>&nbsp;
+          <label class="label">{{dataForm.value.userDetails.fecha}}</label>
+          <br>
+          <label class="labelEstatic">Nacionalidad: </label>&nbsp;
+          <label class="label">{{dataForm.value.userDetails.nacionalidad}}</label>
+          <br>
+          <label class="labelEstatic">Club de Fútbol: </label>&nbsp;
+          <label class="label">{{dataForm.value.userDetails.club}}</label>
+          <br>
+          <label class="labelEstatic">RFC: </label>&nbsp;
+          <label class="label">{{dataForm.value.userDetails.rfc}}</label>
+          <br>
+          <img src="assets/img/logo_fmf.png" alt="Logo" class="logoTransparente">
 
         </div>        
         </div>
      
     </div>
-
-
-     <div *ngIf="step == 3" formGroupName="personalDetails">
-      <!--<h4>Personal Details</h4>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Gender</label>
-        <select class="form-control" formControlName="gender">
-          <option value="null">Select Ony One</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-
-        </select>
-      </div>
-      <div class="form-group">
-       
-        <div class="form-check form-check-inline">
-          Education
-        </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio1" value="SSC">
-              <label class="form-check-label" for="inlineRadio1">SSC</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio2" value="HSC">
-              <label class="form-check-label" for="inlineRadio2">HSC</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio3" value="Graduate">
-              <label class="form-check-label" for="inlineRadio3">Graduate</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" formControlName="education" id="inlineRadio3" value="Post Graduate">
-              <label class="form-check-label" for="inlineRadio3">Post Graduate</label>
-            </div>
-
-      </div> -->
-
-    </div>
-    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous()">Previous</a>
-    <button type="submit" class="btn btn-primary mx-2" *ngIf="step != 3">Next</button>
-    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 3">Submit</button>
     <br>
-    <pre>{{ multistep.value | json}}</pre>
+    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous()">Previous</a>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 1">Next</button>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 2">Generar PDF</button>
+    <br>
   </form>
 </div>

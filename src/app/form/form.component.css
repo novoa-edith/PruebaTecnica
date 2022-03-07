@@ -50,7 +50,16 @@
 
   .strong {
     align-items: center;
-    color: #999;
+    color: #009A3E;
+    font-size: 14px;
+  }
+
+  .strongTarjeta {
+    position: relative;
+    color: #009A3E;
+    font-size: 30px;
+    right: -120;
+    font-style: italic;
   }
   
   .label {
@@ -111,9 +120,25 @@
   }
 
   .label{
-    color: red;
+    color: rgb(80, 81, 82);
+    position: left;
+    font-size: 15px;
+    font-style: oblique;
+    font-weight: lighter;
+  }
+
+  .labelEstatic{
+    color: #528FE5;
+    font-size: 15px;
+    font-style: italic;
+
+  }
+
+  .logoTransparente {
     position: relative;
-    color: red;
-    top: -3px; 
-    right: -80px;
+    opacity: 0.3;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+    top: -150px; 
+    right: -450px;
+
   }
