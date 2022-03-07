@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { club } from '../data/clubes';
 import { generos } from '../data/generos';
 import { nacionalidades } from '../data/nacionalidades';
+import {jsPDF} from 'jspdf';
 
 @Component({
   selector: 'app-form',
@@ -15,7 +16,6 @@ export class FormComponent implements OnInit {
   nacionalidad:any[] = nacionalidades;
   clubFutbol:any[] = club;  
   
-  datos: any;
   step: any = 1;
   submitted: any = false;
   multistep = new FormGroup({
@@ -52,9 +52,24 @@ export class FormComponent implements OnInit {
         return;
       }
       this.step = this.step + 1;
-      // if(this.step == 4) {
-      //     this.route.navigate(['/thankyou'])
-      // }
+  }
+
+  generarPDF(){
+    const doc = new jsPDF;
+    const arreglo = [];
+    for(let element in this.dataForm.value.userDetails){
+      let columna = `\n${element}: ${this.dataForm.value.userDetails[element]}\n`;
+      arreglo.push(columna + '\n');
+    }
+
+    for (let i = 0; i < arreglo.length; i++) {
+      const element = arreglo[i];
+
+      doc.text(element,i+10,i+10);
+      doc.addPage();
+    }
+    doc.save("registro.pdf");
+
   }
 
   previous() {

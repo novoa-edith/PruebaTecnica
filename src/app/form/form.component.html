@@ -12,8 +12,8 @@
 <div class="container tb-10">
   <form (ngSubmit)="submit()" [formGroup]="dataForm">
     <br>
-    <p><strong class="strong">Ingrese los datos indicados.</strong></p> 
     <div *ngIf="step == 1" formGroupName="userDetails">
+    <p><strong class="strong">Ingrese los datos indicados.</strong></p> 
       <div class="form-group">
         <label for="inputNombre">Nombre(s): </label>
         <input type="text" class="form-control" formControlName="nombre" placeholder="Primer Nombre">
@@ -101,12 +101,13 @@
 
         </div>        
         </div>
-     
+
+
     </div>
     <br>
     <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous()">Previous</a>
-    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 1">Next</button>
-    <button type="submit" class="btn btn-primary mx-2" *ngIf="step == 2">Generar PDF</button>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf="step != 3">Next</button>
+    <a class="btn btn-primary mx-2" *ngIf="step == 3" (click)="generarPDF()">Generar PDF</a>
     <br>
   </form>
 </div>
